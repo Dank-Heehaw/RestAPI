@@ -12,8 +12,6 @@
   "license": "ISC",
   "type": "commonjs",
     "dependencies": {
-    "lite-server": "^2.6.1",
-    "concurrently": "^7.6.0",
-    "sass": "^1.62.1"
+    "lite-server": "^2.6.1"
   }
 }
