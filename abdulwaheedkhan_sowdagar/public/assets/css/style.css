@@ -1,0 +1,250 @@
+/* Color scheme and design tokens */
+:root{
+  --bg: #0b1220;
+  --panel: rgba(255,255,255,0.06);
+  --panel-2: rgba(255,255,255,0.10);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.70);
+  --border: rgba(255,255,255,0.12);
+  --danger: #ff6b6b;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* Global styles */
+* { box-sizing: border-box; }
+
+/* Ensure full viewport height for proper layout */
+html { height: 100%; }
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(100, 200, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(200, 100, 255, 0.15) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0e1a 30%, #0b1220 50%, #0d0f1f 100%),
+    var(--bg);
+}
+
+/* Layout container with max width and responsive padding */
+.container{
+  width: min(980px, calc(100% - 2rem));
+  margin: 0 auto;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Accessibility: hidden skip link visible on focus */
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+}
+.skip-link:focus{ left: 1rem; top: 1rem; z-index: 10; }
+
+/* Header section styling */
+.site-header{
+  padding: 2rem 0 1rem;
+}
+.title{
+  margin: 0;
+  font-size: clamp(1rem, 2vw + 1rem, 2.4rem);
+  letter-spacing: 0.2px;
+}
+.subtitle{
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
+/* Card component styling with backdrop blur effects */
+.card{
+  margin: 1rem 0;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.card-title{
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+/* Form styling */
+.form .label{
+  display: block;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+/* Input field row with label and button side-by-side */
+.field-row{
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+}
+
+/* Input field styling */
+.input{
+  width: 100%;
+  padding: 0.9rem 0.95rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.25);
+  color: var(--text);
+  outline: none;
+}
+.input::placeholder{ color: rgba(255,255,255,0.45); }
+.input:focus{
+  border-color: rgba(118,230,255,0.6);
+  box-shadow: 0 0 0 4px rgba(118,230,255,0.14);
+}
+
+/* Button styling with interactive states */
+.btn{
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover{ filter: brightness(1.08); }
+.btn:active{ transform: translateY(1px); }
+
+/* Hint text for form guidance */
+.hint{
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Result section header layout */
+.result-header{
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.status{
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Top section of result card */
+.result-top{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding-top: 0.25rem;
+}
+
+/* Location and metadata styling */
+.place{
+  margin: 0;
+  font-size: clamp(1.2rem, 1vw + 1rem, 1.6rem);
+}
+.meta{
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+}
+
+/* Weather condition display */
+.condition{
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+}
+.condition img{
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+.condition figcaption{
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Three-column grid for weather metrics */
+.grid{
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Key-value pairs for weather data */
+.kv{
+  padding: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(0,0,0,0.18);
+}
+.kv dt{
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.kv dd{
+  margin: 0.35rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+.unit{
+  margin-left: 0.1rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+}
+
+/* Update timestamp */
+.updated{
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Error message styling */
+.error{
+  margin-top: 0.75rem;
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 107, 107, 0.5);
+  background: rgba(255, 107, 107, 0.12);
+  color: #ffd2d2;
+}
+
+/* Footer section */
+.footer{
+  padding: 0.5rem 0 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+
+/* Monospace font utility */
+.mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+/* Responsive design: stack layouts on smaller screens */
+@media (max-width: 720px){
+  .field-row{ grid-template-columns: 1fr; }
+  .grid{ grid-template-columns: 1fr; }
+  .result-top{ grid-template-columns: 1fr; }
+  .condition{ justify-items: start; }
+}

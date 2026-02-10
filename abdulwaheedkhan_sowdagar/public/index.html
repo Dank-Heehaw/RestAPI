@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- header -->
+  <header class="site-header">
+    <section class="container">
+      <h1 class="title">Weather API</h1>
+    </section>  
+  </header>
+
+  <!-- Weather Fourm -->
+  <main id="main" class="container">
+    <section class="card" aria-labelledby="search-title">
+      <h2 id="search-title" class="card-title">Search a city</h2>
+
+      <form id="weather-form" class="form" autocomplete="off">
+          <div class="field-row">
+            <input
+              id="q"
+              name="q"
+              class="input"
+              type="search"
+              placeholder="e.g., London, Toronto, Tokyo"
+              required
+            />  
+            <button class="btn" type="submit">Get weather</button>
+          </div>
+
+          <p class="hint">
+            Tip: try "London".
+          </p>
+    </section>
+
+    <!-- Result Section -->
+    <section class="card" aria-labelledby="result-title">
+      <article class="result-header">
+        <h2 id="result-title" class="card-title">Result</h2>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </article>
+
+      <section id="result" class="result" hidden>
+        <article class="result-top">
+          <div>
+            <h3 class="place" id="place">—</h3>
+            <p class="meta" id="localtime">—</p>
+          </div>
+
+          <figure class="condition">
+            <img id="icon" alt="" width="64" height="64" />
+            <figcaption id="condition-text">—</figcaption>
+          </figure>
+        </article>
+
+        <dl class="grid">
+          <div class="kv">
+            <dt>Temperature</dt>
+            <dd><span id="temp">—</span><span class="unit">°C</span></dd>
+          </div>
+
+          <div class="kv">
+            <dt>Feels like</dt>
+            <dd><span id="feelslike">—</span><span class="unit">°C</span></dd>
+          </div>
+
+          <div class="kv">
+            <dt>Humidity</dt>
+            <dd><span id="humidity">—</span><span class="unit">%</span></dd>
+          </div>
+
+          <div class="kv">
+            <dt>Wind</dt>
+            <dd><span id="wind">—</span></dd>
+          </div>
+
+          <div class="kv">
+            <dt>Pressure</dt>
+            <dd><span id="pressure">—</span><span class="unit"> mb</span></dd>
+          </div>
+
+          <div class="kv">
+            <dt>Visibility</dt>
+            <dd><span id="visibility">—</span><span class="unit"> km</span></dd>
+          </div>
+        </dl>
+
+        <p class="updated" id="updated">—</p>
+      </section>
+
+      <div id="error" class="error" hidden></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        Data provided by <span class="mono">WeatherAPI.com</span>.
+      </p>
+    </footer>
+  </main>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

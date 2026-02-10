@@ -4,10 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server --baseDir=\"public\""
   },
   "keywords": [],
-  "author": "",
+  "author": "abdul waheed khan sowdagar",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+    "dependencies": {
+    "lite-server": "^2.6.1",
+    "concurrently": "^7.6.0",
+    "sass": "^1.62.1"
+  }
 }
