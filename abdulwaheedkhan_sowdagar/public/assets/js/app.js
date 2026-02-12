@@ -1,6 +1,6 @@
 // WeatherAPI.com credentials and endpoint
 const API_KEY = "ef073344a0084a648e7232647260302";
-const BASE_URL = "https://api.weatherapi.com/v1/current.json"; // Fetches real-time weather data
+const BASE_URL = "https://api.weatherapi.com/v1/forecast.json";
 
 const form = document.getElementById("weather-form");
 const input = document.getElementById("q");
